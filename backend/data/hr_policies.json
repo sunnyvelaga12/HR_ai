@@ -1,0 +1,200 @@
+{
+  "company": {
+    "name": "TechNovance Solutions Pvt. Ltd.",
+    "size": "250 employees",
+    "industry": "Software / IT Services",
+    "hr_contact": "hr@technovance.com",
+    "hr_phone": "+91-40-2345-6789",
+    "hrms_portal": "https://hrms.technovance.internal"
+  },
+  "leave_policy": {
+    "section": "Section 2",
+    "casual_leave": {
+      "days_per_year": 12,
+      "max_consecutive": 3,
+      "carry_forward": false,
+      "eligibility": "All confirmed employees",
+      "notice_required": "1 day in advance (except emergencies)",
+      "approval": "Direct Manager",
+      "notes": "Cannot be clubbed with sick leave"
+    },
+    "sick_leave": {
+      "days_per_year": 10,
+      "carry_forward": false,
+      "eligibility": "All employees including probation",
+      "medical_certificate_required": "For 3+ consecutive days",
+      "approval": "Inform manager same day, apply in HRMS within 2 days",
+      "notes": "Medical certificate mandatory if sick leave > 2 days"
+    },
+    "privilege_leave": {
+      "days_per_year": 15,
+      "carry_forward": true,
+      "max_carry_forward": 30,
+      "encashment": "Up to 10 days per year during appraisal cycle",
+      "notice_required": "7 days in advance",
+      "eligibility": "Employees who have completed 1 year",
+      "approval": "Manager + HR for > 5 days"
+    },
+    "maternity_leave": {
+      "days": 182,
+      "paid": true,
+      "eligibility": "Female employees with 80 days worked in 12 months",
+      "adoption_leave": "12 weeks for adoption of child < 3 months",
+      "approval": "HR Department — apply 8 weeks before due date"
+    },
+    "paternity_leave": {
+      "days": 5,
+      "paid": true,
+      "eligibility": "All male confirmed employees",
+      "validity": "Within 30 days of child birth",
+      "approval": "Direct Manager"
+    },
+    "comp_off": {
+      "eligibility": "Employees who work on public holidays or weekends",
+      "validity": "Must be availed within 60 days of the working holiday",
+      "approval": "Direct Manager — apply in HRMS",
+      "notes": "Not encashable. Expires after 60 days."
+    },
+    "bereavement_leave": {
+      "immediate_family": "5 days paid (spouse, children, parents, siblings)",
+      "extended_family": "3 days paid (grandparents, in-laws)",
+      "approval": "Inform HR within 24 hours"
+    }
+  },
+  "wfh_policy": {
+    "section": "Section 3",
+    "eligibility": "Confirmed employees who have completed 6 months",
+    "days_allowed": "Up to 2 days per week for most roles",
+    "roles_excluded": ["Interns", "Employees on probation", "Support staff", "Lab/hardware roles"],
+    "approval_process": "Apply in HRMS by Friday 5 PM for the following week. Manager approves.",
+    "equipment_policy": "Company provides laptop. Employee provides stable internet (min 10 Mbps).",
+    "core_hours_wfh": "10:00 AM - 4:00 PM IST — must be reachable",
+    "day_restrictions": "WFH cannot be taken on Monday and Friday simultaneously in the same week",
+    "revocation": "Manager can revoke WFH if performance is affected. 1 week notice given."
+  },
+  "attendance_policy": {
+    "section": "Section 4",
+    "office_hours": "9:00 AM to 6:00 PM",
+    "core_hours": "10:00 AM to 4:00 PM (mandatory in office)",
+    "flexible_window": "Can arrive between 8:30 AM and 10:30 AM",
+    "late_policy": {
+      "grace_period": "15 minutes",
+      "after_grace": "Marked as late arrival. 3 lates in a month = half day deducted",
+      "habitual_late": "More than 5 lates per month = written warning"
+    },
+    "half_day": "Employees can mark half-day in HRMS. Min 4 hours on-site.",
+    "biometric": "Biometric punch-in required on all office days"
+  },
+  "expense_reimbursement": {
+    "section": "Section 5",
+    "submission_deadline": "Within 30 days of expense. No exceptions.",
+    "travel": {
+      "local_cab": "Actuals up to Rs 1,500 per day with receipt",
+      "intercity_train": "2nd AC for all employees",
+      "intercity_flight": "Economy class. Must be booked via company travel desk.",
+      "per_diem": "Rs 1,200/day for Tier-1 cities. Rs 800/day for other cities.",
+      "hotel": "Up to Rs 4,000/night Tier-1, Rs 2,500/night others. HR pre-approval needed above limits."
+    },
+    "meals": {
+      "office_canteen": "Rs 100/day subsidized by company",
+      "client_meals": "Up to Rs 2,000 per person per meal — Manager + Finance approval",
+      "team_meals": "Up to Rs 500 per person with prior Manager approval"
+    },
+    "client_entertainment": {
+      "limit": "Rs 10,000 per event",
+      "approval": "Department Head + Finance. Submit guest list and purpose.",
+      "prohibited": "Alcohol expenses are NOT reimbursable"
+    },
+    "process": "Submit Expense Report form in HRMS. Attach all receipts. Reimbursed in next payroll cycle."
+  },
+  "dress_code": {
+    "section": "Section 6",
+    "monday_to_thursday": "Business casual. No torn jeans, shorts, or sleeveless.",
+    "friday_casual": "Smart casual. Jeans acceptable. No beachwear.",
+    "client_visit_days": "Formal business attire. Suit/saree/salwar preferred. ID badge mandatory.",
+    "id_badge": "Must be worn visibly at all times in office",
+    "violation": "First offense — verbal warning. Repeat — written warning."
+  },
+  "holiday_list_2025": {
+    "section": "Section 7",
+    "national_holidays": [
+      {"date": "January 26", "day": "Sunday", "holiday": "Republic Day"},
+      {"date": "March 14", "day": "Friday", "holiday": "Holi"},
+      {"date": "April 14", "day": "Monday", "holiday": "Ambedkar Jayanti / Tamil New Year"},
+      {"date": "April 18", "day": "Friday", "holiday": "Good Friday"},
+      {"date": "August 15", "day": "Friday", "holiday": "Independence Day"},
+      {"date": "October 2", "day": "Thursday", "holiday": "Gandhi Jayanti"},
+      {"date": "October 20", "day": "Monday", "holiday": "Dussehra"},
+      {"date": "October 23", "day": "Thursday", "holiday": "Diwali"},
+      {"date": "November 5", "day": "Wednesday", "holiday": "Diwali (Bhai Dooj)"},
+      {"date": "December 25", "day": "Thursday", "holiday": "Christmas Day"}
+    ],
+    "company_holidays": [
+      {"date": "March 31", "day": "Monday", "holiday": "Financial Year Closing Day"},
+      {"date": "August 16", "day": "Saturday", "holiday": "Company Foundation Day (half-day Friday Aug 15 counts)"},
+      {"date": "December 31", "day": "Wednesday", "holiday": "New Year Eve — Company Holiday"}
+    ],
+    "total_holidays": 13,
+    "restricted_holidays": "Employees may choose 2 additional days from a restricted holiday list (Eid, Pongal, etc.) — apply in HRMS by January 31."
+  },
+  "appraisal_policy": {
+    "section": "Section 8",
+    "cycle": "Annual — April 1 to March 31",
+    "timeline": {
+      "January": "Self-assessment forms open in HRMS",
+      "February 1-15": "Employee submits self-assessment",
+      "February 16-28": "Manager reviews and rates",
+      "March 1-15": "Department Head calibration",
+      "March 16-31": "HR moderation and final approval",
+      "April 1": "Increment letters and new salary effective"
+    },
+    "rating_scale": {
+      "5": "Outstanding — Exceeds all targets significantly",
+      "4": "Exceeds Expectations — Exceeds most targets",
+      "3": "Meets Expectations — Meets all targets",
+      "2": "Needs Improvement — Partially meets targets",
+      "1": "Unsatisfactory — Does not meet targets"
+    },
+    "increment_bands": {
+      "rating_5": "15-20% increment",
+      "rating_4": "10-14% increment",
+      "rating_3": "6-9% increment",
+      "rating_2": "0-5% increment",
+      "rating_1": "No increment — PIP initiated"
+    },
+    "pip": "Performance Improvement Plan: 90-day structured improvement with weekly check-ins"
+  },
+  "probation_policy": {
+    "section": "Section 9",
+    "duration": "6 months from date of joining",
+    "extension": "May be extended by 3 months — communicated 30 days before end date",
+    "confirmation_process": "Manager submits Confirmation Form to HR by Month 5. HR sends offer letter by end of Month 6.",
+    "leave_during_probation": "Only sick leave and bereavement leave allowed. No CL/PL/WFH.",
+    "notice_period_during_probation": "1 month from both sides"
+  },
+  "notice_period": {
+    "section": "Section 10",
+    "by_level": {
+      "intern": "2 weeks",
+      "junior_associate_to_senior_associate": "1 month",
+      "lead_to_manager": "2 months",
+      "senior_manager_to_director": "3 months",
+      "vp_and_above": "3 months (negotiable)"
+    },
+    "buyout": "Notice period can be bought out at Basic Salary per day",
+    "garden_leave": "Company can place employee on garden leave during notice",
+    "full_and_final": "F&F settlement within 45 days of last working day"
+  },
+  "grievance_policy": {
+    "section": "Section 11",
+    "process": [
+      "Step 1: Raise with direct Manager verbally. Resolution in 5 working days.",
+      "Step 2: If unresolved, raise formal grievance in HRMS or email to hr@technovance.com.",
+      "Step 3: HR Investigation — HR will acknowledge within 2 days and resolve within 15 working days.",
+      "Step 4: If still unresolved, escalate to HR Head. Final decision in 10 working days.",
+      "Step 5: External mediation if internal resolution fails."
+    ],
+    "confidentiality": "All grievances are handled confidentially. No retaliation policy.",
+    "posh_committee": "For sexual harassment — contact POSH Committee at posh@technovance.com"
+  }
+}
