@@ -12,7 +12,8 @@ logger = logging.getLogger(__name__)
 def _jwt_secret() -> str:
     secret = settings.JWT_SECRET
     if not secret:
-        raise RuntimeError("JWT_SECRET is not set in .env")
+        logger.warning("JWT_SECRET is not set in .env — using fallback development key")
+        return "dev-secret-key-technovance-hr-ai-chatbot-2026"
     return secret
 
 

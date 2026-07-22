@@ -227,10 +227,17 @@ async def get_workspace_by_passkey(passkey: str):
 
 @router.post("/login", response_model=LoginResponse)
 async def login(payload: LoginRequest):
-    db = get_db()
     email = payload.email.strip().lower()
+    try:
+        db = get_db()
+        user = await db.users.find_one({"email": email})
+    except Exception as db_exc:
+        logger.error(f"Database error during login for {email}: {db_exc}")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=f"Database connection error: {str(db_exc)}",
+        )
 
-    user = await db.users.find_one({"email": email})
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

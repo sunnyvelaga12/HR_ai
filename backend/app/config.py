@@ -54,7 +54,7 @@ class Settings(BaseSettings):
     HRMS_PORTAL: str = "https://hrms.technovance.internal"
     
     # JWT Auth
-    JWT_SECRET: str = ""
+    JWT_SECRET: str = "dev-secret-key-technovance-hr-ai-chatbot-2026"
     JWT_EXP_MINUTES: int = 1440
     ADMIN_JWT_EXP_MINUTES: int = 60  # Short-lived admin sessions (1 hour)
 

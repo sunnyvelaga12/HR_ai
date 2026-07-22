@@ -128,25 +128,34 @@ async def request_id_middleware(request: Request, call_next):
 # ✅ This ensures CORS headers appear on ALL responses including 500s
 # ---------------------------------------------------------------------------
 CORS_ORIGINS = settings.allowed_origins_list or []
-if not CORS_ORIGINS:
-    CORS_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
-    std_logger.warning("CORS origins not configured — falling back to localhost:3000 only")
 
-# Always ensure both localhost variants are included
+# Always ensure local dev origins (ports 3000, 3005) and matching localhost/127.0.0.1 pairs are allowed
 _extra = []
 for origin in list(CORS_ORIGINS):
-    if "localhost:3000" in origin and "http://127.0.0.1:3000" not in CORS_ORIGINS:
-        _extra.append("http://127.0.0.1:3000")
-    if "127.0.0.1:3000" in origin and "http://localhost:3000" not in CORS_ORIGINS:
-        _extra.append("http://localhost:3000")
+    if "localhost:" in origin:
+        port = origin.split("localhost:")[-1]
+        alt = f"http://127.0.0.1:{port}"
+        if alt not in CORS_ORIGINS:
+            _extra.append(alt)
+    elif "127.0.0.1:" in origin:
+        port = origin.split("127.0.0.1:")[-1]
+        alt = f"http://localhost:{port}"
+        if alt not in CORS_ORIGINS:
+            _extra.append(alt)
+
+for default_origin in ["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3005", "http://127.0.0.1:3005"]:
+    if default_origin not in CORS_ORIGINS:
+        _extra.append(default_origin)
+
 CORS_ORIGINS = list(set(CORS_ORIGINS + _extra))
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_ORIGINS,
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],  # ✅ FIX: added missing methods
-    allow_headers=["Content-Type", "X-Request-ID", "Authorization"],
+    allow_methods=["*"],
+    allow_headers=["*"],
     expose_headers=["X-Request-ID", "X-RateLimit-Remaining", "X-RateLimit-Reset"],
     max_age=3600,
 )
@@ -296,8 +305,26 @@ async def chat_endpoint(
 
 
 # ---------------------------------------------------------------------------
-# Custom 422 handler
+# Global Exception Handlers (ensures CORS headers on all error responses)
 # ---------------------------------------------------------------------------
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"detail": exc.detail},
+        headers=getattr(exc, "headers", None),
+    )
+
+@app.exception_handler(Exception)
+async def unhandled_exception_handler(request: Request, exc: Exception):
+    std_logger.error(f"Unhandled exception on {request.method} {request.url.path}: {exc}", exc_info=True)
+    return JSONResponse(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        content={
+            "detail": f"Internal Server Error: {str(exc)}" if settings.is_development else "An internal server error occurred."
+        },
+    )
+
 @app.exception_handler(422)
 async def validation_exception_handler(request: Request, exc):
     return JSONResponse(
